@@ -32,10 +32,17 @@
             </ul>
         </td>
         <td>
-            <a th:href="@{/admin/edit(id=${user.id})}">Edit</a>
+            <form th:action="@{/admin/edit(id=${user.id})}" method="get">
+                <input type="hidden" name="id" th:value="${user.id}"/>
+                <button type="submit">Edit</button>
+            </form>
         </td>
         <td>
-            <a th:href="@{/admin/delete(id=${user.id})}">Delete</a>
+            <form th:action="@{/admin/delete(id=${user.id})}" method="post">
+                <input type="hidden" name="id" th:value="${user.id}"/>
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete</button>
+            </form>
         </td>
     </tr>
     </tbody>
