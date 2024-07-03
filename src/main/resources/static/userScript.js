@@ -16,6 +16,7 @@ function getNavBar({username, roles}) {
     document.getElementById('headerUserRoles').innerHTML = rolesNavBar
 }
 function getUser(user) {
+    if (user.roles) {
     let rolesUser =''
     user.roles.forEach(role => {
         rolesUser += role.name.replace('ROLE_', '') + " "
@@ -30,5 +31,6 @@ function getUser(user) {
             <td>${rolesUser}</td>
          </tr>`
     document.getElementById('userInfoId').innerHTML = temp
+    }
 }
 void getUserInfo()
